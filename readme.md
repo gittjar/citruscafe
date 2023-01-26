@@ -1,1 +1,1 @@
-Citruscafe one page site.
+Citruscafe one page site. Responsive flex mobile, tablet and laptop.
