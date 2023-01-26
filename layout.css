@@ -1,0 +1,262 @@
+html {
+    font-size: 62.5%; /* 62.5% x 16px = 10px */
+}
+
+body {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
+    background-color: #83C05B;
+    
+}
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+p {
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.header {
+    background-color: #83C05B;
+}
+
+.mobiili, .tablet, .desktop {
+    padding: 1rem;
+    display: inline-block;
+}
+
+.mobiili {
+
+}
+
+.tablet {
+    display: none;
+}
+
+.desktop {
+      display: none;
+}
+
+
+/* kuvien määritykset */
+
+figure {
+    width: 100%;
+   /* border: black solid 1px; */
+    padding: 0.1rem;
+}    
+figure img {
+    max-width: 100%;
+    
+}
+
+/* 
+HUOM! Käytetään Flexiä vain niihin kohtiin sivuilla kuin tarve!
+PARENT = Navipalkit
+VISION = Yläalue jossa teksti + kuva
+BOXES = Keskellä olevat laatikot
+*/
+
+/* Lisätään elementin ul lapsiin (ul li) flexi */
+/* nämä ovat navipalkissa ylhäällä*/
+
+.parent {
+    display: flex;
+   /* flex-direction: row; */
+   flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.parent > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    border: solid 1px black;
+    padding: 10px;
+    background-color: #9DCD7C;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* YLÄALUEEN VISION FLEX */
+.vision {
+    display: flex;
+    flex-direction: row;
+   /* flex-direction: column; */
+    flex-wrap: nowrap;
+
+}
+
+.vision > * {
+    flex-grow: 2;
+    flex-basis: 0;
+    /* border: solid 1px black; */
+    padding: 0px;
+    background-color: #83C05B;
+}
+
+/* keskialueen tekstin määrittelyt */
+
+/* vision teksti näkyy vihreällä taustalla mobilessa ja fontti pienenee */
+.vision .teksti {
+    background-color: #83C05B;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    flex-grow: 3;
+}
+/* kuva_vision ei näytetä mobiilissa */
+
+.kuva_vision {
+    display: none;
+}
+
+/* keskialueen boxit */
+/* FLEXILLÄ */
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+   /* flex-direction: column; */
+   flex-wrap: wrap;
+  /* border: solid 1px black; */ 
+        }
+
+.boxes > * {  
+    flex-grow: 1;
+    flex-basis: 100%;
+   /* border: solid 1px black; */
+    padding: 15px;
+   /* background-color: #83C05B; */
+   background-color: white;
+}
+
+/* buttonit keskialueella joissa harmaa tausta */
+
+.button {
+    background-color: lightslategray;
+    border: none;
+    color: black;
+    width: 100%;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px 5px 5px 5px;
+  }
+
+  /* buttonien sisällä olevat nuolet oikeaan reunaan*/
+  .fa-solid {
+    float: right;
+  }
+
+/* alaosio */
+
+.footer {
+    background-color: #83C05B;
+}
+/* somelogot oikealle */
+.fa-brands {
+    float: right;
+    padding: 2px;
+    color: whitesmoke;
+}
+
+
+
+/* Tablet-näkymän css-säännöt */
+@media only screen and (min-width: 426px) {
+    body {
+      background-color: #83C05B;
+      color: black;
+    }
+
+    .mobiili {
+        display: none;
+    }
+    .tablet {
+        display: inline-block;
+    }
+    /* tässä navirivin määritys */
+    .parent {
+        order: 1;
+        flex-basis: 0px;
+        flex-direction: row;
+    }
+/* kuva vision tippuu pois tablet ja isompi ruutu */
+    .kuva_vision {
+        display: block;
+    }
+/* tässä tippuu 2 päällekkäin ja 1 alle boxeista */
+    .specials, .events {
+        flex-basis: 0;
+    }
+
+    /* vision teksti näkyy vaaleanruskealla taustalla ja fontti suurenee */
+    .vision .teksti {
+        background-color: #E4DCC2;
+        font-size: 1.8rem;
+        text-align: center;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        flex-grow: 3;
+    }
+
+  }
+
+  /* Desktop-näkymän css-säännöt */
+@media only screen and (min-width: 769px) {
+    body {
+      background-color: #83C05B;
+      color: black;
+    }
+    .tablet{
+        display: none;}
+
+    .desktop{
+        display: inline-block;
+    }
+/* tässä navirivin määritys */
+    .parent {
+        order: 1;
+        flex-basis: 0px;
+        flex-direction: row;
+    }
+
+        /* vision teksti näkyy vaaleanruskealla taustalla ja fontti suurenee lisää! */
+        .vision .teksti {
+            background-color: #E4DCC2;
+            font-size: 2.4rem;
+            text-align: center;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            flex-grow: 3;
+        }
+
+    /* tässä menee boksit 3 vierekkäin desktop -näkymä */
+    .specials, .events, .news {
+        flex-basis: 0;
+    }
+
+    /* .vision {
+        order: 2;
+        flex-basis: 0px;
+        flex-direction: row;
+    } */
+    /* .boxes {
+        order: 3;
+        flex-basis: 0px;
+        flex-direction: row;
+    } */
+    
+    .footer {
+        order: 4;
+    }
+  }
